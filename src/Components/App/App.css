@@ -1,0 +1,27 @@
+body{
+  background-color: bisque;
+}
+
+.AppDisplay{
+  background-color: burlywood;
+  font-size: larger;
+}
+
+.AppDisplay:hover{
+  font-size: xx-large;
+}
+
+.AppState{
+  background-color: chocolate;
+  font-size: larger;
+}
+
+.AppState:hover{
+  font-size: xx-large;
+}
+button{
+  padding: 1rem;
+  margin: 1rem;
+  background-color: cyan;
+  color: darkblue;
+}

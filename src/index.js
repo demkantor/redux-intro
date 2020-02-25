@@ -7,24 +7,64 @@ import {Provider} from 'react-redux';
 
 
 
-const firstReducer  = (state, action)=>{
+const firstReducer  = (state = 100, action)=>{
         if(action.type === 'BUTTON_ONE'){
         console.log('here i am.. well here is reducer', action.type);
+        return state -1
         }
-        return{};
+        return state;
 }
 
-const secondReducer  = (state, action)=>{
+const secondReducer  = (state = 0, action)=>{
     if(action.type === 'BUTTON_TWO'){
         console.log('another one?', action.type);
+        console.log('this is state 2,', state);
+        return state + 1
     }
-        return{};
+        return state;
+}
+
+const reducerThird  = (state = 78, action)=>{
+    if(action.type === 'BUTTON_THREE'){
+        console.log('another one?', action.type);
+        console.log('this is state 3,', state);
+        return state + 1
+    }
+        return state;
+}
+
+const fourthReducer = (state = [], action)=>{
+    console.log('buttonFour!', state)
+    switch(action.type){
+        case 'BUTTON_FOUR':
+            return [...state, action.payload];
+        default:
+            return state;
+    }
+
+}
+
+const periodicTable  = (state = {type: 'apple'}, action)=>{
+    if(action.type === 'ADD_ELEMENT'){
+        console.log('ou can pick your molecules but you cant pick your element', action);
+        console.log(state);
+            if(state.type === 'apple'){
+                return (state = {type: 'orange'});
+            }
+            else if(state.type === 'orange'){
+                return (state = {type: 'apple'});
+            }
+    }
+        return state;
 }
 
 const storeInstance = createStore(
     combineReducers({
         firstReducer,
-        secondReducer
+        secondReducer,
+        periodicTable,
+        reducerThird,
+        fourthReducer
     })
 )
 
